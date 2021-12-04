@@ -1,6 +1,6 @@
 package snowbober.Systems;
 
-import snowbober.Components.*;
+import snowbober.Components.CmpId;
 import snowbober.ECS.Component;
 import snowbober.ECS.System;
 import snowbober.ECS.World;
@@ -10,9 +10,10 @@ import java.util.ArrayList;
 
 public class GameOverSystem implements System {
     boolean pcExist;
+
     @Override
     public void update(long gameFrame, World world) throws InterruptedException {
-        ArrayList<Component[]> components =  world.getEntitiesWithComponents(new int[] {
+        ArrayList<Component[]> components = world.getEntitiesWithComponents(new int[]{
                 CmpId.PLAYER_CONTROLLED.ordinal()
         });
 

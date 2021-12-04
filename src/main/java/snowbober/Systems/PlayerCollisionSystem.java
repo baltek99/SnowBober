@@ -12,13 +12,12 @@ public class PlayerCollisionSystem implements System {
 
     @Override
     public void update(long gameFrame, World world) {
-        ArrayList<Component[]> components = world.getEntitiesWithComponents(new int[] {
+        ArrayList<Component[]> components = world.getEntitiesWithComponents(new int[]{
                 CmpId.PLAYER_CONTROLLED.ordinal(),
                 CmpId.COLLISION_RESPONSE.ordinal(),
                 CmpId.POSITION.ordinal(),
                 CmpId.VISUAL.ordinal()
         });
-
 
         for (int entity = 0; entity < world.MAX_ENTITIES; entity++) {
             if (World.isEntityOk(entity, components) == false) continue;

@@ -19,7 +19,6 @@ public class RailSystem implements System {
                 CmpId.VISUAL.ordinal()
         });
 
-
         for (int entity = 0; entity < world.MAX_ENTITIES; entity++) {
             if (World.isEntityOk(entity, components) == false) continue;
 

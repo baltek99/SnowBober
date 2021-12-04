@@ -35,6 +35,7 @@ public class World {
             }
         }
     }
+
     public void killEntity(int entityId) {
         for (int i = 0; i < components.length; i++) {
             components[i][entityId] = null;
@@ -71,12 +72,9 @@ public class World {
         return components[cmpId][entityId];
     }
 
-    public static boolean isEntityOk(int entityId, ArrayList<Component[]> entities)
-    {
-        for (int cmp = 0; cmp < entities.size(); ++cmp)
-        {
-            if (entities.get(cmp)[entityId] == null)
-            {
+    public static boolean isEntityOk(int entityId, ArrayList<Component[]> entities) {
+        for (int cmp = 0; cmp < entities.size(); cmp++) {
+            if (entities.get(cmp)[entityId] == null) {
                 return false;
             }
         }

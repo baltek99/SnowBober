@@ -1,6 +1,5 @@
 package snowbober.Components;
 
-import snowbober.ECS.Component;
 import snowbober.ECS.ComponentWithId;
 import snowbober.Util.Texture;
 

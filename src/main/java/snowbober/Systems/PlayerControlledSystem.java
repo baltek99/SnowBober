@@ -6,7 +6,6 @@ import snowbober.ECS.System;
 import snowbober.ECS.World;
 import snowbober.Util.Util;
 
-
 import java.util.ArrayList;
 import java.util.Queue;
 
@@ -16,11 +15,12 @@ public class PlayerControlledSystem implements System {
     public PlayerControlledSystem(Queue<InputActions> queue) {
         actionsQueue = queue;
     }
+
     @Override
     public void update(long gameFrame, World world) {
         InputActions action = actionsQueue.poll();
 
-        ArrayList<Component[]> components =  world.getEntitiesWithComponents(new int[] {
+        ArrayList<Component[]> components = world.getEntitiesWithComponents(new int[]{
                 CmpId.POSITION.ordinal(),
                 CmpId.PLAYER_CONTROLLED.ordinal(),
                 CmpId.JUMP.ordinal(),
@@ -30,8 +30,8 @@ public class PlayerControlledSystem implements System {
         for (int entity = 0; entity < world.MAX_ENTITIES; entity++) {
             if (World.isEntityOk(entity, components) == false) continue;
 
-            Position pos = (Position)components.get(0)[entity];
-            PlayerControlled pctrl = (PlayerControlled)components.get(1)[entity];
+            Position pos = (Position) components.get(0)[entity];
+            PlayerControlled pctrl = (PlayerControlled) components.get(1)[entity];
             Jump jump = ((Jump) components.get(2)[entity]);
             Visual vis = (Visual) components.get(3)[entity];
 

@@ -1,6 +1,5 @@
 package snowbober.Components;
 
-
 import snowbober.ECS.ComponentWithId;
 
 public class Jump extends ComponentWithId {

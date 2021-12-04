@@ -11,7 +11,7 @@ public class CollisionSystem implements System {
     @Override
     public void update(long gameFrame, World world) {
 
-        ArrayList<Component[]> components = world.getEntitiesWithComponents(new int[] {
+        ArrayList<Component[]> components = world.getEntitiesWithComponents(new int[]{
                 CmpId.POSITION.ordinal(),
                 CmpId.COLLISION.ordinal(),
                 CmpId.PLAYER_CONTROLLED.ordinal()
@@ -30,8 +30,7 @@ public class CollisionSystem implements System {
                 if (posB == null || colB == null) continue;
 
                 CollisionType type = intersects(posA, colA, posB, colB);
-                if (type == CollisionType.NONE)
-                {
+                if (type == CollisionType.NONE) {
                     continue;
                 }
 
@@ -42,15 +41,12 @@ public class CollisionSystem implements System {
         }
     }
 
-    CollisionType intersects(Position posA, Collision colA, Position posB, Collision colB)
-    {
-        int distance = (int)Math.sqrt(((posA.x - posB.x) * (posA.x - posB.x)) + ((posA.y - posB.y) * (posA.y - posB.y)));
+    CollisionType intersects(Position posA, Collision colA, Position posB, Collision colB) {
+        int distance = (int) Math.sqrt(((posA.x - posB.x) * (posA.x - posB.x)) + ((posA.y - posB.y) * (posA.y - posB.y)));
         //java.lang.System.out.println("Dist: " + distance + " Pos: " + posA.x  + " " + posB.x);
-        if (distance == colA.radius + colB.radius)
-        {
+        if (distance == colA.radius + colB.radius) {
             return CollisionType.TOUCH;
-        }
-        else if (distance < colA.radius + colB.radius) {
+        } else if (distance < colA.radius + colB.radius) {
             return CollisionType.INTERSECT;
         }
 

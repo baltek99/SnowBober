@@ -3,9 +3,8 @@ package snowbober.Systems;
 import snowbober.Components.*;
 import snowbober.ECS.System;
 import snowbober.ECS.World;
-import snowbober.Util.Util;
-
 import snowbober.Util.Texture;
+import snowbober.Util.Util;
 
 public class ObstacleGeneratorSystem implements System {
     public int min, max, current, spawnRate;
@@ -20,6 +19,7 @@ public class ObstacleGeneratorSystem implements System {
         texBox = Util.loadImage("assets/skrzynka.png", 0.6f);
         texRail = Util.loadImage("assets/rail.png", 0.7f);
     }
+
     @Override
     public void update(long gameFrame, World world) throws InterruptedException {
         if (gameFrame % spawnRate == 0) {
@@ -35,7 +35,7 @@ public class ObstacleGeneratorSystem implements System {
         world.addComponentToEntity(rail, new Position(1600, 500));
         world.addComponentToEntity(rail, new Visual(texRail));
         world.addComponentToEntity(rail, new Move(-3));
-        world.addComponentToEntity(rail, new Collision(texRail.imgWidth, texRail.imgHeight, (texRail.imgWidth + texRail.imgHeight)/2 - 80, ObstacleType.RAIL));
+        world.addComponentToEntity(rail, new Collision(texRail.imgWidth, texRail.imgHeight, (texRail.imgWidth + texRail.imgHeight) / 2 - 80, ObstacleType.RAIL));
 
     }
 
@@ -43,7 +43,7 @@ public class ObstacleGeneratorSystem implements System {
         world.addComponentToEntity(box, new Position(1600, 500));
         world.addComponentToEntity(box, new Visual(texBox));
         world.addComponentToEntity(box, new Move(-3));
-        world.addComponentToEntity(box, new Collision(texBox.imgWidth, texBox.imgHeight, (texBox.imgWidth+ texBox.imgHeight)/2-40, ObstacleType.BOX));
+        world.addComponentToEntity(box, new Collision(texBox.imgWidth, texBox.imgHeight, (texBox.imgWidth + texBox.imgHeight) / 2 - 40, ObstacleType.BOX));
 
     }
 }

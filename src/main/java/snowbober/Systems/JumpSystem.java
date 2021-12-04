@@ -1,12 +1,13 @@
 package snowbober.Systems;
 
 import snowbober.Components.*;
-import snowbober.ECS.*;
+import snowbober.ECS.Component;
 import snowbober.ECS.System;
+import snowbober.ECS.World;
+import snowbober.Util.Game;
+import snowbober.Util.Util;
 
 import java.util.ArrayList;
-import snowbober.Util.Util;
-import snowbober.Util.Game;
 
 public class JumpSystem implements System {
     static final int jumpHeight = -200;
@@ -14,7 +15,7 @@ public class JumpSystem implements System {
 
     @Override
     public void update(long gameFrame, World world) {
-        ArrayList<Component[]> components =  world.getEntitiesWithComponents(new int[] {
+        ArrayList<Component[]> components = world.getEntitiesWithComponents(new int[]{
                 CmpId.POSITION.ordinal(),
                 CmpId.PLAYER_CONTROLLED.ordinal(),
                 CmpId.JUMP.ordinal(),
@@ -35,8 +36,7 @@ public class JumpSystem implements System {
                     pos.y = jump.jumpFrom;
                     vis.texture = Util.loadImage("assets/bober-stand.png", 0.7f);
                     Game.score++;
-                }
-                else {
+                } else {
                     // frames
                     pos.y = (int) Util.lerp(
                             jump.jumpFrom,

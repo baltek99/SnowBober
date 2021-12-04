@@ -1,7 +1,5 @@
 package snowbober.Components;
 
-
-import snowbober.ECS.Component;
 import snowbober.ECS.ComponentWithId;
 
 public class PlayerControlled extends ComponentWithId {

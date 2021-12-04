@@ -2,8 +2,6 @@ package snowbober.Components;
 
 import snowbober.ECS.ComponentWithId;
 
-import java.awt.*;
-
 public class Collision extends ComponentWithId {
     public int offSetX, offSetY;
     public int radius;
